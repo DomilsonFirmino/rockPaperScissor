@@ -1,5 +1,6 @@
-
 const choices = ["rock","paper","scissor"];
+let playerScore = 0;
+let computerScore = 0;
 
 function isIN(validChoice){
     for (let i = 0; i < choices.length; i++)
@@ -20,11 +21,15 @@ function singleRound(){
     if(!isIN(playerChoice))
         return "invalido";
     else if( playerChoice == PCCHOICE)
-        return "Its a Tie";
-    else if(playerChoice == "rock" && PCCHOICE=="paper" || playerChoice == "scissor" && PCCHOICE=="rock" || playerChoice == "paper" && PCCHOICE=="scissor")
-        return "You Lose";
-    else
-        return "You Win";
+        return "This round is a Draw";
+    else if(playerChoice == "rock" && PCCHOICE=="paper" || playerChoice == "scissor" && PCCHOICE=="rock" || playerChoice == "paper" && PCCHOICE=="scissor"){
+        computerScore++;
+        return "You Lose this round";
+    } 
+    else{
+        playerScore++;
+        return "You Win this round";
+    }
 }
 
 let rounds = event =>{
@@ -39,9 +44,16 @@ let rounds = event =>{
         else{
             console.log(roundResult);
         }
-        console.log();
     }
+    if(computerScore == playerScore){
+        console.log("The rounds ended in a draw");
+    }
+    else if(computerScore > playerScore){
+        console.log("You lost the rounds");
+    }else{
+        console.log("You win the rounds");
+    }
+    
 };
-
 
 rounds();
