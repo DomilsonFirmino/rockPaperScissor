@@ -55,5 +55,3 @@ let rounds = event =>{
     }
     
 };
-
-rounds();
