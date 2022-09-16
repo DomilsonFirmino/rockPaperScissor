@@ -17,6 +17,12 @@ main{
     flex-direction: column;
 }
 
+img{
+    width: 10em;
+    height: auto;
+    border-radius: 2em;
+    border: 4px solid lightslategray;
+}
 .player{
     background-color: lightgray;
     height: max(13%, 8em);
@@ -31,6 +37,9 @@ img{
     border-radius: 10px;
 }
 
+.you img{
+    transform: scaleX(-1);
+}
 
 p{
     font-size: 1.8vw;
@@ -40,12 +49,21 @@ p{
 
 @media screen and (max-width: 1050px) {
     p{
-       font-size: 1.8em;
+       font-size: 2.5em;
     }
     .player{
-        height: 12%;
+        height: 18%;
     }
 }
+@media screen and (max-width: 450px) {
+    p{
+       font-size: 1.5em;
+    }
+    .player{
+        height: 9.5%;
+    }
+}
+
 
 @media screen and (max-width: 380px) {
     p{
@@ -56,13 +74,20 @@ p{
     }
 }
 
+
+.points{
+    text-transform: uppercase;
+}
 .name{
     font-weight: bolder;
 }
 .perfil{
     display: flex;
+    position: relative;
 }
-
+.imagePerfil img{
+    min-width: 7.5em;
+}
 .computer .perfil{
     text-align: right;
     flex-direction: row-reverse;
@@ -85,4 +110,32 @@ p{
 
 .game{
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Turn{
+    flex: 1;
+}
+.Cards{
+    display: flex;
+    align-items: center;
+}
+.CComputer{
+    margin-top: -0.5rem;
+}
+.CComputer img{
+    transform: scaleY(-1);
+    position: relative;
+    height: auto;
+    width: clamp(4.5em,8.5vw,8.5em);
+    min-width: 3em;
+    z-index: -1;
+}
+
+.CPlayer{
+    margin-bottom: -1.8rem;
+}
+.Cards >*:not(:first-child){
+    margin-left: 1rem;
 }
