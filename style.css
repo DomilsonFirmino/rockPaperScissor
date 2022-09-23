@@ -1,3 +1,6 @@
+:root{
+    --main-bg-color: rgb(112, 111, 111);
+}
 *, ::after, ::before, *::before, *::after{
     margin: 0;
     padding: 0;
@@ -18,25 +21,17 @@ main{
 }
 
 img{
-    width: 10em;
     height: auto;
-    border-radius: 2em;
-    border: 4px solid lightslategray;
+    width: clamp(8em,10vw,10em);
+    border-radius: 10px;
+    border: 4px solid var(--main-bg-color);
 }
 .player{
-    background-color: lightgray;
+    background-color: var(--main-bg-color);
     height: max(13%, 8em);
     position: relative;
     padding: 0 2rem;
 }
-
-img{
-    height: auto;
-    width: clamp(6em,10vw,10em);
-    border: 4px solid lightslategray;
-    border-radius: 10px;
-}
-
 .you img{
     transform: scaleX(-1);
 }
@@ -74,19 +69,18 @@ p{
     }
 }
 
-
-.points{
-    text-transform: uppercase;
+.namePoints{
+    margin-left: 1.5rem;
 }
-.name{
-    font-weight: bolder;
+p{
+    font-weight: 600;
 }
 .perfil{
     display: flex;
     position: relative;
 }
 .imagePerfil img{
-    min-width: 7.5em;
+    min-width: 6.5em;
 }
 .computer .perfil{
     text-align: right;
@@ -94,7 +88,7 @@ p{
     margin-top: 1rem;
 }
 .computer .imagePerfil{
-    margin-left: 1rem;
+    margin-left: .4rem;
 }
 
 .you .perfil{
@@ -105,7 +99,25 @@ p{
 }
 
 .you .imagePerfil{
-    margin-right: 1rem;
+    margin-right: .5rem;
+}
+
+.continue{
+    visibility:hidden;
+}
+.show{
+    visibility: visible;
+    position: absolute;
+    top: 50%;
+    bottom: 0%;
+    right: 0;
+    margin-right: 2rem;
+    padding: .5rem 2.5rem .5rem .5rem;
+    cursor: pointer;
+}
+
+.show:hover > p{
+    color: rgb(194, 175, 175);
 }
 
 .game{
@@ -122,13 +134,13 @@ p{
     align-items: center;
 }
 .CComputer{
-    margin-top: -0.5rem;
+    margin-top: 1.5rem;
 }
 .CComputer img{
     transform: scaleY(-1);
     position: relative;
     height: auto;
-    width: clamp(4.5em,8.5vw,8.5em);
+    width: clamp(4em,8vw,8em);
     min-width: 3em;
     z-index: -1;
 }
@@ -138,4 +150,15 @@ p{
 }
 .Cards >*:not(:first-child){
     margin-left: 1rem;
+}
+
+.CPlayer > div:hover > img{
+    cursor: pointer;
+    border: 3px solid rgb(34, 48, 172);
+    border-radius: 10px;
+    transition: transform .20s ease-in-out;
+    transform: translateY(-40px);
+}
+.isSelected{
+    border: 2px solid red;
 }

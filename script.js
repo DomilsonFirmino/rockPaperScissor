@@ -1,6 +1,53 @@
 const choices = ["rock","paper","scissor"];
+
 let playerScore = 0;
 let computerScore = 0;
+
+
+let playerChoice;
+let showChoice = false;
+
+const playerRock = document.querySelector(".rock");
+const playerPaper = document.querySelector(".paper");
+const playerScissor = document.querySelector(".scissor");
+const showNext = document.querySelector(".continue");
+
+playerRock.addEventListener("click",() =>{
+    playerChoice = "rock";
+    if(showChoice == false){
+        showNext.classList.toggle('show');
+        showChoice = true;
+    }
+    playerRock.querySelector("img").classList.toggle('isSelected');
+    playerPaper.querySelector("img").classList.remove('isSelected');
+    playerScissor.querySelector("img").classList.remove('isSelected');
+})
+
+playerPaper.addEventListener("click",() =>{
+    playerChoice = "paper";
+    showChoice = true;
+    if(showChoice == false){
+        showNext.classList.toggle('show');
+        showChoice = true;
+    }
+    playerPaper.querySelector("img").classList.toggle('isSelected');
+    playerRock.querySelector("img").classList.remove('isSelected');
+    playerScissor.querySelector("img").classList.remove('isSelected');
+})
+
+playerScissor.addEventListener("click",() =>{
+    playerChoice = "scissor";
+    showChoice = true;
+    if(showChoice == false){
+        showNext.classList.toggle('show');
+        showChoice = true;
+    }
+    playerScissor.querySelector("img").classList.toggle('isSelected');
+    playerPaper.querySelector("img").classList.remove('isSelected');
+    playerRock.querySelector("img").classList.remove('isSelected');
+})
+
+
 
 function isIN(validChoice){
     for (let i = 0; i < choices.length; i++)
@@ -53,5 +100,4 @@ let rounds = event =>{
     }else{
         console.log("You win the rounds");
     }
-    
 };
