@@ -1,8 +1,8 @@
 :root{
-    --primary: gray;
-    --secondary: orange;
+    --primary: rgb(160, 159, 159);
+    --secondary: rgba(105, 95, 95, 0.952);
     --dark-color: hsl(0, 1%, 17%);
-    --light-medium-color: rgb(180, 179, 179);
+    --light-medium-color: rgb(143, 142, 142);
     --light-color: hsl(0, 0%, 80%);
 
     --fw--regular: 500;
@@ -24,7 +24,7 @@
 
 
 .header{
-    background-color: var(--primary);
+    background-color: var(--light-medium-color);
     padding: 2rem 3rem;
     display: flex;
     justify-content: space-between;
@@ -34,12 +34,13 @@
     font-size: 1.5rem;
     font-weight: var(--fw--regular);
     color: var(--light-color);
-    border: 1px solid var(--light-color);
+    border: 2px solid var(--light-color);
     padding: .5rem 1rem;
 }
 .number{
     font-size: 2rem;
     font-weight: var(--fw--bold);
+    color: rgb(0, 0, 0);
     position: relative;
     z-index: 30;
     color: var(--dark-color);
@@ -74,25 +75,21 @@ body{
     font-family: sans-serif;
 }
 
-
-.computer{
-    margin-bottom: 5rem;
-}
-
 .winner{
     text-align: center;
 }
 .winner .win{
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     font-weight: var(--fw--bold);
+    visibility: hidden;
+    margin: 4rem 0;
+    color: var(--secondary);
 }
 
-.player{
-    margin-top: 5rem;
-}
 .card:not(:first-child){
     margin-left: 2rem;
 }
+
 .card{
     width: 150px;
     height: 200px;
@@ -178,12 +175,15 @@ body{
 
 .card__title{
     font-size: 1.1rem;
+    font-weight: var(--fw--medium);
+    color: black;
     text-transform: uppercase;
     transform: var(--rotation-ex);
 }
 
 .card__subtitle{
     font-size: 1rem;
+    font-weight: var(--fw--regular);
     transform: var(--rotation-mid);
 }
 
