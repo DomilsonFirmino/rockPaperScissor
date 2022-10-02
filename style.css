@@ -83,7 +83,7 @@ body{
     font-weight: var(--fw--bold);
     visibility: hidden;
     margin: 4rem 0;
-    color: var(--secondary);
+    color: red;
 }
 
 .card:not(:first-child){
