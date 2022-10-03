@@ -9,6 +9,24 @@ const ComputerScore = document.querySelector(".cScore");
 const PlayerScore = document.querySelector(".pScore");
 const RoundNumber = document.querySelector(".number");
 
+const mutationObserver = new MutationObserver(entries =>{
+    if(entries[0].target.nodeValue==6){
+        RoundNumber.childNodes[0].nodeValue = contRounds-1;
+        let cs = parseInt(ComputerScore.innerHTML)
+        let ps = parseInt(PlayerScore.innerHTML)
+        if( cs > ps){
+            declareWinner("YOU LOSE THE GAME")
+        }
+        else if(cs === ps){
+            declareWinner("THE GAME IS TIED")
+        }else{
+            declareWinner("YOU WIN THE GAME")
+        }
+    }     
+})
+
+mutationObserver.observe(RoundNumber.childNodes[0],{characterData: true})
+
 let selected = false;
 for(let i=0; i<cards.length;i++){
     cards[i].addEventListener("click",function(){
@@ -18,8 +36,15 @@ for(let i=0; i<cards.length;i++){
             selected = true;
             singleRound();
             contRounds++;
-            setTimeout(reset,1000);
-            RoundNumber.innerHTML = contRounds;
+            RoundNumber.childNodes[0].nodeValue = contRounds;
+            setTimeout(reset,900);
+            setTimeout(()=>{
+                if(contRounds == 5){
+                contRounds++;
+                RoundNumber.childNodes[0].nodeValue = contRounds;
+                }
+            },1200)
+            
         }     
     });
 }
@@ -68,5 +93,4 @@ function reset(){
 
     let b = ".player "; b = b + "."+PlayerChoice; b = b + " .card__content";
     document.querySelector(b).classList.remove("isflipped");
-
 }
