@@ -1,3 +1,3 @@
 # The Odin Project - rockPaperScissor
 
-- Live Site URL: [ROck Paper Scissor](https://domilsonfirmino.github.io/rockPaperScissor/)
+- Live Site URL: [Rock Paper Scissor](https://domilsonfirmino.github.io/rockPaperScissor/)
